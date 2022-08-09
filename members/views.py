@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib import messages
 
 
@@ -11,7 +11,14 @@ def register_request(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect("main:homepage")
-        messages.error(request, "Unsuccessful registration. Invalid information.")
+            messages.error(request, "Unsuccessful members. Invalid information.")
+            return redirect('../profil/')
     form = RegisterForm()
     return render(request=request, template_name="members/register.html", context={"register_form": form})
+
+
+def profil(request):
+    return render(request, 'members/profil.html')
+
+def logout_view(request):
+    logout(request)
