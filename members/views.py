@@ -20,5 +20,8 @@ def register_request(request):
 def profil(request):
     return render(request, 'members/profil.html')
 
-def logout_view(request):
+
+def logout(request):
     logout(request)
+    messages.success(request, "Logout successful.")
+    return render(request, 'home/home.html')
