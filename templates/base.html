@@ -15,17 +15,17 @@
 
                 {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">{{ user.username }}</a>
+                    <a class="nav-link" href="{% url 'profil' %}">{{ user.email }}</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="/members/logout">Deconnexion</a>
+                  <a class="nav-link" href="{% url 'logout' %}">Deconnexion</a>
                 </li>
                   {% else %}
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Connexion</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register_request' %}">Inscription</a>
+                    <a class="nav-link" href="{% url 'signup' %}">Inscription</a>
                   </li>
                   {% endif %}
 

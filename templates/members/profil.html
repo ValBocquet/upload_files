@@ -3,10 +3,14 @@
 {% block title %}Profil{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<h1>Mon profil !</h1>
- {{ user.username }}
-{% else %}
-<p>Pour accéder à cette page, il faut être connecté : <a href="{% url 'login' %}">se connecter</a></p>
-{% endif %}
-{% endblock %}
+ <div class="container py-5">
+   {% if user.is_authenticated %}
+    <h1>Mon profil !</h1>
+     {{ user.email }}
+      <h3>Statut : {{user.is_staff}}</h3>
+
+    {% else %}
+    <p>Pour accéder à cette page, il faut être connecté : <a href="{% url 'login' %}">se connecter</a></p>
+    {% endif %}
+  {% endblock %}
+ </div>
