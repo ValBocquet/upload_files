@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}BlogPage {% endblock %}
+
+{% block content %}
+    <div class="card m-4">
+        <h5 class="card-header"><CITE> Publié le {{ article.created_at }} </CITE></h5>
+        <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.body }}</p>
+        </div>
+    </div>
+
+
+{% endblock %}

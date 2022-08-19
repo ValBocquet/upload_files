@@ -1,5 +1,4 @@
-
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 
 from blog.models import Article
 
@@ -11,3 +10,8 @@ class HomeBlog(TemplateView):
         context = super().get_context_data(**kwargs)
         context['latest_articles'] = Article.objects.all()[:5]
         return context
+
+
+class DisplayArticle(DetailView):
+    model = Article
+    context_object_name = "article"

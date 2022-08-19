@@ -2,6 +2,16 @@
 {% block title %}BlogPage {% endblock %}
 
 {% block content %}
+{% for article in latest_articles %}
+    <div class="card m-4">
+        <h5 class="card-header">Publié le {{ article.created_at }}</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.body|truncatewords:70 }}</p>
+            <a href="{{ article.slug }}" class="btn btn-primary">See article</a>
+        </div>
+    </div>
+{% endfor %}
 
 
 {% endblock %}
